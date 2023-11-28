@@ -7,17 +7,42 @@ import Layout from './components/Layout';
 import themes from './styles/themes';
 
 class App extends React.Component{
-  constructor(props){
-    super(props);
-    console.log(props);
-    this.state = {
-      theme: 'dark',
-      posts: [{}],
-    };
-    this.handleToggleTheme = this.handleToggleTheme.bind(this);
-  }
 
-  handleToggleTheme(){
+  //In house way to handle this properties and states
+
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     theme: 'dark',
+  //   };
+  //   this.handleToggleTheme = this.handleToggleTheme.bind(this);
+  // }
+
+  // handleToggleTheme(){
+  //   this.setState((prevState) => ({
+  //     theme: prevState.theme === 'dark'
+  //       ? 'light'
+  //       : 'dark'
+  //     }
+  //   ));
+  // }
+
+  //Using the babel plugin '@babel/plugin-transform-class-properties' (replacing
+  //plugin-proposal-class-properties).
+  //DISCALIMER -> With the current babel & react of project, this wasn't really
+  //necessary since:
+  /*
+    @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to
+    the ECMAScript standard and thus this plugin is no longer maintained.
+    Please use @babel/plugin-transform-class-properties instead.
+  */
+
+  state = {
+    theme: 'dark',
+    posts: [{}],
+  };
+
+  handleToggleTheme = () => {
     this.setState((prevState) => ({
       theme: prevState.theme === 'dark'
         ? 'light'
