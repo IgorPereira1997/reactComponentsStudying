@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React from 'react';
 
 import { ThemeProvider } from 'styled-components';
 
@@ -39,7 +39,6 @@ class App extends React.Component{
 
   state = {
     theme: 'dark',
-    posts: [{}],
   };
 
   handleToggleTheme = () => {
@@ -49,6 +48,11 @@ class App extends React.Component{
         : 'dark'
       }
     ));
+
+    //This method forces render method to be called again, even with no Component
+    //changes were detected. Useful if you wanna make sure it will update the
+    //Component
+    this.forceUpdate();
   }
 
   render(){
