@@ -6,15 +6,15 @@ import Footer from '../Footer';
 
 export default function Layout(props) {
 
-  useEffect(() => {
-    function handleScroll(){
-      console.debug('Scrolling...')
-    }
+  // useEffect(() => {
+  //   function handleScroll(){
+  //     console.debug('Scrolling...')
+  //   }
 
-    document.addEventListener('scroll', handleScroll);
+  //   document.addEventListener('scroll', handleScroll);
 
-    return () => document.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   return () => document.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   return (
     <>
