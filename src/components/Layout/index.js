@@ -4,7 +4,7 @@ import Header from '../Header';
 import PostsList from '../PostsList';
 import Footer from '../Footer';
 
-export default function Layout(props) {
+export default function Layout() {
 
   // useEffect(() => {
   //   function handleScroll(){
@@ -18,9 +18,9 @@ export default function Layout(props) {
 
   return (
     <>
-      <Header onToggleTheme={props.onToggleTheme} selectedTheme={props.selectedTheme}/>
+      <Header />
       <PostsList />
-      <Footer onToggleTheme={props.onToggleTheme} selectedTheme={props.selectedTheme}/>
+      <Footer />
     </>
   );
 }
