@@ -57,9 +57,21 @@ class App extends React.Component{
   //   this.forceUpdate();
   // }
 
+  state = {
+    changed: false
+  };
+
+  //Method is executed in the first componente execution
+  //similar to useEffect(() => {}, [])
+  componentDidMount(){
+    console.log('Did mount executed');
+  }
+
   render(){
+    console.log('rendered page');
     return (
       <ThemeProvider>
+        <button onClick={() => this.setState({ changed: true})}>Change state</button>
         <ThemeContext.Consumer>
           {({ theme }) => ( //Destructuring contextData
             <StyledThemeProvider theme={themes[theme] || themes.dark}>
