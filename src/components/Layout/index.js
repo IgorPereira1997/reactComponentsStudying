@@ -18,6 +18,7 @@ export default function Layout() {
 
   return (
     <>
+    {undefined.map(item => item)}
       <Header />
       <PostsList />
       <Footer />

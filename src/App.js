@@ -67,15 +67,20 @@ class App extends React.Component{
     console.log('Did mount executed');
   }
 
-  //Method is executed on any component update
-  //similar to useEffect(() => {}, [])
+  //Method is executed on any component update, monitoring both props
+  //and state of youy component
+  //similar to useEffect(() => {})
   componentDidUpdate(prevProps, prevState){
     console.log({
       currentState: this.state,
       prevProps,
       prevState
     })
+  }
 
+  // used to catch any error inside the component and its children
+  componentDidCatch(error, info){
+    console.log("componentDidCatch:", {error: error, info: info});
   }
 
   render(){
