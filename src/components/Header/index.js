@@ -3,19 +3,36 @@ import { Container } from './styles';
 
 import { ThemeContext } from './../../contexts/ThemeContext';
 
-export default class Header extends React.Component{
-  render(){
-    return (
-      <ThemeContext.Consumer>
-        {({theme, handleToggleTheme}) => ( //Destructuring contextData
-          <Container>
-            <h1>Igor's JStack Blog</h1>
-            <button type="button" onClick={handleToggleTheme}>
-            {theme === 'dark' ? '🌞' : '🌚'}
-            </button>
-          </Container>
+function HOC(HeaderComponent){
+  return class Component extends React.Component{
+    render(){
+      return(
+        <ThemeContext.Consumer>
+        {(value) => (
+          <HeaderComponent {... value }/>
         )}
       </ThemeContext.Consumer>
+      );
+    }
+  }
+}
+
+class Header extends React.Component{
+
+  componentDidUpdate(prevProps, prevState){
+    if(this.props.theme !== prevProps.theme){
+      console.log('Changed theme!');
+    }
+  }
+
+  render(){
+    return (
+      <Container>
+        <h1>Igor's JStack Blog</h1>
+        <button type="button" onClick={this.props.handleToggleTheme}>
+          {this.props.theme === 'dark' ? '🌞' : '🌚'}
+        </button>
+      </Container>
     );
   }
 }
@@ -30,3 +47,5 @@ export default class Header extends React.Component{
 //     </Container>
 //   );
 // }
+
+export default HOC(Header);
