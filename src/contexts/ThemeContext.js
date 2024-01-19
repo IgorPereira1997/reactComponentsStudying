@@ -31,6 +31,12 @@ export class ThemeProvider extends React.Component{
     });
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.theme !== this.state.theme){
+      console.log('Theme has been changed');
+    }
+  }
+
   render(){
     return(
       <ThemeContext.Provider
