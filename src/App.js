@@ -67,6 +67,17 @@ class App extends React.Component{
     console.log('Did mount executed');
   }
 
+  //Method is executed on any component update
+  //similar to useEffect(() => {}, [])
+  componentDidUpdate(prevProps, prevState){
+    console.log({
+      currentState: this.state,
+      prevProps,
+      prevState
+    })
+
+  }
+
   render(){
     console.log('rendered page');
     return (
