@@ -67,11 +67,11 @@ class App extends React.Component{
     console.log('Did mount executed');
   }
 
-  //Method is executed on any component update, monitoring both props
+  //Method is executed after any component update, monitoring both props
   //and state of youy component
   //similar to useEffect(() => {})
   componentDidUpdate(prevProps, prevState){
-    console.log({
+    console.log("componentDidUpdate:",{
       currentState: this.state,
       prevProps,
       prevState
@@ -81,6 +81,21 @@ class App extends React.Component{
   // used to catch any error inside the component and its children
   componentDidCatch(error, info){
     console.log("componentDidCatch:", {error: error, info: info});
+  }
+
+  //Method is executed before any component update, monitoring both props
+  //and state of youy component
+  //it returns true, if you want the component to make the new render, or
+  //false, to block the new render of a component. better if used in an
+  //conditional situation, to ease up configuring the return
+  //similar to useEffect(() => {})
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("shouldComponentUpdate:",{
+      currentState: this.state,
+      nextProps,
+      nextState
+    });
+    return true;
   }
 
   render(){
