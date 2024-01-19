@@ -102,12 +102,20 @@ class App extends React.Component{
     console.log('rendered page');
     return (
       <ThemeProvider>
-        <button onClick={() => this.setState({ changed: true})}>Change state</button>
         <ThemeContext.Consumer>
-          {({ theme }) => ( //Destructuring contextData
+          {({ theme, handleToggleTheme }) => ( //Destructuring contextData
             <StyledThemeProvider theme={themes[theme] || themes.dark}>
               <GlobalStyle />
-              <Layout />
+              {/* <button onClick={() => this.setState({ changed: true})}>Change state</button>
+              */}
+              <button onClick={handleToggleTheme}>Change state</button>
+
+              {theme === 'dark' && <Layout/>}
+              {/*<Layout />*/}
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </StyledThemeProvider>
           )}
         </ThemeContext.Consumer>
