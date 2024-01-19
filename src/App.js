@@ -108,14 +108,14 @@ class App extends React.Component{
               <GlobalStyle />
               {/* <button onClick={() => this.setState({ changed: true})}>Change state</button>
               */}
-              <button onClick={handleToggleTheme}>Change state</button>
+              {/* <button onClick={handleToggleTheme}>Change state</button> */}
 
-              {theme === 'dark' && <Layout/>}
-              {/*<Layout />*/}
+              {/* {theme === 'dark' && <Layout/>} */}
+              <Layout />
+              {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
             </StyledThemeProvider>
           )}
         </ThemeContext.Consumer>
